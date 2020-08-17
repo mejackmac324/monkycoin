@@ -71,28 +71,28 @@ templates = [
 # templates for valid bech32 sequences
 bech32_templates = [
   # hrp, version, witprog_size, metadata, output_prefix
-  ('ltc',   0, 20, (False, 'main',    None, True), p2wpkh_prefix),
-  ('ltc',   0, 32, (False, 'main',    None, True), p2wsh_prefix),
-  ('ltc',   1,  2, (False, 'main',    None, True), (OP_1, 2)),
-  ('tltc',  0, 20, (False, 'test',    None, True), p2wpkh_prefix),
-  ('tltc',  0, 32, (False, 'test',    None, True), p2wsh_prefix),
-  ('tltc',  2, 16, (False, 'test',    None, True), (OP_2, 16)),
-  ('rltc',  0, 20, (False, 'regtest', None, True), p2wpkh_prefix),
-  ('rltc',  0, 32, (False, 'regtest', None, True), p2wsh_prefix),
-  ('rltc', 16, 40, (False, 'regtest', None, True), (OP_16, 40))
+  ('MNC',   0, 20, (False, 'main',    None, True), p2wpkh_prefix),
+  ('MNC',   0, 32, (False, 'main',    None, True), p2wsh_prefix),
+  ('MNC',   1,  2, (False, 'main',    None, True), (OP_1, 2)),
+  ('tMNC',  0, 20, (False, 'test',    None, True), p2wpkh_prefix),
+  ('tMNC',  0, 32, (False, 'test',    None, True), p2wsh_prefix),
+  ('tMNC',  2, 16, (False, 'test',    None, True), (OP_2, 16)),
+  ('rMNC',  0, 20, (False, 'regtest', None, True), p2wpkh_prefix),
+  ('rMNC',  0, 32, (False, 'regtest', None, True), p2wsh_prefix),
+  ('rMNC', 16, 40, (False, 'regtest', None, True), (OP_16, 40))
 ]
 # templates for invalid bech32 sequences
 bech32_ng_templates = [
   # hrp, version, witprog_size, invalid_bech32, invalid_checksum, invalid_char
   ('tc',    0, 20, False, False, False),
-  ('tltc',  17, 32, False, False, False),
-  ('rltc',  3,  1, False, False, False),
-  ('ltc',   15, 41, False, False, False),
-  ('tltc',  0, 16, False, False, False),
-  ('rltc',  0, 32, True,  False, False),
-  ('ltc',   0, 16, True,  False, False),
-  ('tltc',  0, 32, False, True,  False),
-  ('rltc',  0, 20, False, False, True)
+  ('tMNC',  17, 32, False, False, False),
+  ('rMNC',  3,  1, False, False, False),
+  ('MNC',   15, 41, False, False, False),
+  ('tMNC',  0, 16, False, False, False),
+  ('rMNC',  0, 32, True,  False, False),
+  ('MNC',   0, 16, True,  False, False),
+  ('tMNC',  0, 32, False, True,  False),
+  ('rMNC',  0, 20, False, False, True)
 ]
 
 def is_valid(v):
@@ -112,7 +112,7 @@ def is_valid(v):
 
 def is_valid_bech32(v):
     '''Check vector v for bech32 validity'''
-    for hrp in ['ltc', 'tltc', 'rltc']:
+    for hrp in ['MNC', 'tMNC', 'rMNC']:
         if decode(hrp, v) != (None, None):
             return True
     return False

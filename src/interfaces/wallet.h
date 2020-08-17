@@ -245,7 +245,7 @@ public:
     virtual OutputType getDefaultAddressType() = 0;
 
     // Get default change type.
-    virtual OutputType getDefaultChangeType() = 0;
+    virtual OutputType getDefauMNChangeType() = 0;
 
     // Remove wallet.
     virtual void remove() = 0;

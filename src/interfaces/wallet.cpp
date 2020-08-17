@@ -467,7 +467,7 @@ public:
     bool canGetAddresses() override { return m_wallet->CanGetAddresses(); }
     bool IsWalletFlagSet(uint64_t flag) override { return m_wallet->IsWalletFlagSet(flag); }
     OutputType getDefaultAddressType() override { return m_wallet->m_default_address_type; }
-    OutputType getDefaultChangeType() override { return m_wallet->m_default_change_type; }
+    OutputType getDefauMNChangeType() override { return m_wallet->m_default_change_type; }
     void remove() override
     {
         RemoveWallet(m_wallet);
